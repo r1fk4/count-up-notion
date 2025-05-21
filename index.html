@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:900">
+    <title>Time Since October 9, 2024</title>
+    <style>
+        body {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+        }
+        
+        #timer {
+            color: #eeeeee;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: .7em;
+            letter-spacing: 3px;
+        }
+        
+        .years, .months, .days {
+            display: inline-block;
+            padding: 25px;
+            width: 140px;
+            border-radius: 8px;
+            margin: 0 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .years {
+            background: #EF2F3C;
+        }
+        
+        .months {
+            background: #276FBF;
+        }
+        
+        .days {
+            background: #F0A202;
+        }
+        
+        .numbers {
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            font-size: 5em;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .label {
+            font-size: 1.2em;
+            letter-spacing: 2px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #183059;
+            margin-bottom: 40px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .container {
+            text-align: center;
+            max-width: 800px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Time Since October 9, 2024</h1>
+        <div id="timer">
+            <div class="years"> 
+                <div id="years" class="numbers">0</div>
+                <div class="label">years</div>
+            </div> 
+            <div class="months"> 
+                <div id="months" class="numbers">0</div>
+                <div class="label">months</div>
+            </div> 
+            <div class="days"> 
+                <div id="days" class="numbers">0</div>
+                <div class="label">days</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set the start date to October 9, 2024
+        const startDate = new Date('October 9, 2024 00:00:00');
+        
+        function updateTimer() {
+            const currentDate = new Date();
+            
+            // Calculate full years difference
+            let years = currentDate.getFullYear() - startDate.getFullYear();
+            
+            // Calculate months difference
+            let months = currentDate.getMonth() - startDate.getMonth();
+            
+            // Calculate days difference
+            let days = currentDate.getDate() - startDate.getDate();
+            
+            // If the current day is before the start day, adjust months and days
+            if (days < 0) {
+                months--;
+                // Get the last day of the previous month
+                const lastDayOfPrevMonth = new Date(
+                    currentDate.getFullYear(), 
+                    currentDate.getMonth(), 
+                    0
+                ).getDate();
+                days += lastDayOfPrevMonth;
+            }
+            
+            // If months is negative after day adjustment, adjust years and months
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+            
+            // Ensure we don't show negative time if start date is in future
+            if (currentDate < startDate) {
+                years = 0;
+                months = 0;
+                days = 0;
+            }
+            
+            // Update the display
+            document.getElementById("years").textContent = years;
+            document.getElementById("months").textContent = months;
+            document.getElementById("days").textContent = days;
+        }
+        
+        // Update immediately and then every second
+        updateTimer();
+        setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>
