@@ -11,26 +11,28 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            min-height: 50vh; /* Reduced by 50% */
             margin: 0;
             font-family: 'Lora', serif;
+            transform: scale(0.5); /* Overall scaling to 50% */
+            transform-origin: top center; /* Keep centered while scaling */
         }
         
         #timer {
             color: #eeeeee;
             text-align: center;
             text-transform: uppercase;
-            font-size: .7em;
-            letter-spacing: 3px;
+            font-size: 0.35em; /* Half of original .7em */
+            letter-spacing: 1.5px; /* Half of original 3px */
         }
         
         .years, .months, .days {
             display: inline-block;
-            padding: 25px;
-            width: 140px;
-            border-radius: 8px;
-            margin: 0 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 12.5px; /* Half of original 25px */
+            width: 70px; /* Half of original 140px */
+            border-radius: 4px; /* Slightly reduced */
+            margin: 0 5px; /* Half of original 10px */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Reduced shadow */
         }
         
         .years {
@@ -48,32 +50,33 @@
         .numbers {
             font-family: 'Lora', serif;
             color: white;
-            font-size: 5em;
+            font-size: 2.5em; /* Half of original 5em */
             font-weight: 700;
             text-align: center;
-            margin-bottom: 5px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+            margin-bottom: 2.5px; /* Half of original 5px */
+            text-shadow: 0.5px 0.5px 1.5px rgba(0,0,0,0.2); /* Reduced shadow */
         }
         
         .label {
-            font-size: 1.2em;
-            letter-spacing: 2px;
+            font-size: 0.6em; /* Half of original 1.2em */
+            letter-spacing: 1px; /* Half of original 2px */
         }
         
         h1 {
             text-align: center;
-            color: #11613a;
-            margin-bottom: 40px;
+            color: #2a5e44;
+            margin-bottom: 20px; /* Half of original 40px */
             font-family: 'Lora', serif;
             font-weight: 700;
-            text-transform: lowercase;
-            letter-spacing: 3px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px; /* Half of original 3px */
+            font-size: 1em; /* Adjust as needed */
         }
         
         .container {
             text-align: center;
-            max-width: 800px;
-            padding: 20px;
+            max-width: 400px; /* Half of original 800px */
+            padding: 10px; /* Half of original 20px */
         }
     </style>
 </head>
